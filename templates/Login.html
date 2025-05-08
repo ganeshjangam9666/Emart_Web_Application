@@ -1,0 +1,88 @@
+<!-- 
+{% load static %}
+{% block content %}
+    <form method="post" id="login-form">
+        {% csrf_token %}
+        {{form.username}}
+        {{form.password}}
+        <input type="submit" value="Login" id="submit-btn">
+    </form>
+    <link rel="stylesheet" href="{% static 'css/Login.css' %}">
+{% endblock %} -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="{% url 'category:home' %}" id="home-link"><img src="{% static 'Images/logo.jpg' %}" alt="" id="logo"></a>
+    <form method="post" id="login-form">
+        {% csrf_token %}
+        <h3 id="headtxt">Log in to E-mart</h3>
+        {{form.username}}
+        {{form.password}}
+        <br>
+        <input type="submit" value="Login" id="submit-btn">
+        <div id="create-account">
+            <span>----------------  or  ----------------</span>
+            <br>
+            <button id="signup-btn"><a href="{% url 'accounts:register' %}">Sign-up</a></button>
+        </div>
+    </form>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <!-- Replace 'your-logo.png' with your actual company logo -->
+                <img src="{% static 'Images/logo.jpg' %}" alt="Your Company Logo" class="logo">
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="{% url 'accounts:contact' %}">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us On</h3>
+                    <ul class="social-links">
+                        <li><a href="#" class="social-icon facebook">
+                            <img src="{% static 'Images/facebook.png' %}" alt="Facebook">
+                        </a></li>
+                        <li><a href="#" class="social-icon twitter">
+                            <img src="{% static 'Images/twitter.png' %}" alt="Twitter">
+                        </a></li>
+                        <li><a href="#" class="social-icon instagram">
+                            <img src="{% static 'Images/insta.png' %}" alt="Instagram">
+                        </a></li>
+                        <li><a href="#" class="social-icon youtube">
+                            <img src="{% static 'Images/youTube.png' %}" alt="YouTube">
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Your Company Name. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <link rel="stylesheet" href="{% static 'css/Login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Base.css' %}">
+</body>
+</html>

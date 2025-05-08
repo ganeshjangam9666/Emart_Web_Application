@@ -1,0 +1,60 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Product Image -->
+                <div class="product-card">
+                    <img src="{{data.pic.url}}" alt="Product Image" class="product-image">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <!-- Product Details -->
+                <div class="product-card">
+                    <h2 class="product-name">{{data.name}}</h2>
+                    <p class="product-description">{{data.desc}}</p>
+                    <div class="price">Rs. {{data.price}}</div>
+                    <div class="availability">In Stock {{data.id}}</div>
+                    <div class="mt-4">
+                        <a href="{% url 'cart:add_to_cart' data.id %}"><button class="btn btn-primary">Add to Cart</button></a>
+                        <button class="btn btn-secondary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .container{
+            width: 100%;
+            height: 40rem;
+        }
+        .row{
+            position: relative;
+            top: 100px;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .price {
+            font-size: 1.5rem;
+            color: green;
+        }
+        .availability {
+            font-size: 1.2rem;
+            color: red;
+        }
+    </style>
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="{% static 'css/Base.css' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="container">
+        {% for i,j in combined_data %}
+            <div class="card">
+                <a href="{% url 'products:productDetails' i.id%}"><img src="{{i.pic.url}}" class="card-img-top" alt="..."></a>
+                <div class="card-body">
+                    <h6 class="card-title">{{i.name}} || {{i.desc}}</h6>
+                    <p class="card-text" id="amount" ><h4 style="display: inline; font-size: 15px;">₹ {{j}}</h4> M.R.P: <strike>₹{{i.price}}</strike> ({{i.discount}}% off)</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <link rel="stylesheet" href="{% static 'css/Product.css' %}">
+    <script src="{% static 'js/Products.js' %}" defer></script>
+{% endblock %}

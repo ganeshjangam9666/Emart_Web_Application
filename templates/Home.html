@@ -1,0 +1,48 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block content %}
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Baby/cnnjpp1/Baby/Homepage_DesktopHeroTemplate_3000x1200_1._CB580021402_.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/WLA/2024/BAU/Hero/Unrec/D91435399_WLA-BAU-Unrec-Hero_DesktopTallHero_3000x1200._CB582928607_.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/MA2024/GW/BFCM/WA_Ethnic_PC_2X._CB540703489_.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img24/Consumables/SVD/Dec/GW/SVD_PC_Hero_3000X1200_02._CB540782194_.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/GW/Uber/Nov/Nov_New_3000x1200._CB542180708_.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Toys/GW/GW-Hero-PC_BBAug23_Soft-toys_with-Apay_Lifestyle_1x._CB597740150_.jpg" class="d-block w-100" alt="...">
+        </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <br>
+    <div id="parent">
+        {% for i in data %}
+            <div class="card">
+                <div>
+                    <a href="{% url 'products:product' i.id %}"><img src="{{i.pic.url}}" class="card-img" alt="..."></a>
+                </div>
+                <a href="{% url 'products:product' i.id %}"><h5>{{i.about}}</h5></a>
+                <p>{{i.desc}}</p>
+            </div>
+        {% endfor %}
+    </div>
+    <link rel="stylesheet" href="{% static 'css/Home.css' %}">
+{% endblock %}

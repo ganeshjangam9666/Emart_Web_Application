@@ -1,0 +1,43 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <header>
+            <h1>Contact Us</h1>
+            <p>We're here to help! Feel free to get in touch with any questions or feedback.</p>
+        </header>
+        
+        <section class="contact-form">
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Full Name">
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+        
+        <section class="contact-info">
+            <h2>Our Contact Information</h2>
+            <div class="info">
+                <p><strong>Address:</strong> 123 eMart Street, KPHB Colony, Hyderabad, India</p>
+                <p><strong>Email:</strong> support@emart.com</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+            </div>
+        </section>
+    </div>
+
+
+    <link rel="stylesheet" href="{% static 'css/Contactus.css' %}">
+{% endblock %}

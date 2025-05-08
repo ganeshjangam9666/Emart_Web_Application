@@ -1,0 +1,40 @@
+
+
+
+
+
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+      <div class="cart-container">
+          <h1>Shopping Cart</h1>
+          {% for i in data %}
+              <div class="cart-item" id="cart-item-{{ forloop.counter }}">
+                  <img src="{{i.product_image.url}}" alt="Product Image">
+                  <div class="item-details">
+                      <p class="item-name">{{i.product_name}}</p>
+                      <p class="item-price" id="item-price-{{ forloop.counter }}">RS.{{i.product_price}}</p>
+                  </div>
+                  <div class="quantity-controls">
+                      <button class="decrease cntls" onclick="updateQuantity({{ forloop.counter }}, -1)">-</button>
+                      <input type="text" class="quantity cntls" value="{{ i.quantity }}" id="quantity-{{ forloop.counter }}" readonly>
+                      <button class="increase cntls" onclick="updateQuantity({{ forloop.counter }}, 1)">+</button>
+                  </div>
+                  <p class="item-total" id="item-total-{{ forloop.counter }}">Rs {{i.total_price}}</p>
+
+                    <form action="{% url 'cart:remove_from_cart' i.id %}" method="post" style="margin: 0px; padding: 0px;">
+                        {% csrf_token %}
+                        <button type="submit" style="background-color: rgb(187, 186, 180); ">Remove</button>
+                    </form>
+              </div>
+          {% endfor %}
+          <div class="cart-summary">
+              <p>Total: <span class="total-price" id="total-price">Rs.  </span></p>
+              <a href="{% url 'category:home' %}"><button class="checkout">Continue Shopping</button></a>
+              <a href="{% url 'cart:status' %}"><button class="checkout">Proceed to Chekout</button></a>
+          </div>
+      </div>
+      <link rel="stylesheet" href="{% static 'css/Cart.css' %}">
+      <script src="{% static 'js/Cart.js' %}" defer></script>
+{% endblock %}

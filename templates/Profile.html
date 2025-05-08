@@ -1,0 +1,124 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block content %}
+        <div class="profile-container">
+            <!-- User Profile Image -->
+            <div class="profile-image">
+                <img src="{% static 'Images/mb1.webp' %}" alt="User Image" />
+            </div>
+            
+            <table>
+                <tr>
+                    <td><strong>Username:</strong></td>
+                    <td>{{ customer.username }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>{{ customer.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Address:</strong></td>
+                    <td>{{ customer.address }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Country:</strong></td>
+                    <td>{{ customer.country }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Phone:</strong></td>
+                    <td>{{ customer.phone }}</td>
+                </tr>
+            </table>
+            
+            <a href="#">Edit Profile</a> <!-- Option to edit the profile -->
+            <a href="{% url 'accounts:logout' %}">Logout</a>
+        </div>
+
+
+    <style>
+                /* Container Style */
+        .profile-container {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 600px;
+            margin-top: 50px;
+        }
+
+        /* Profile Image */
+        .profile-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Circle-shaped image */
+            object-fit: cover; /* Ensures image covers the area without stretching */
+            border: 3px solid #007BFF; /* Optional border for the image */
+        }
+
+        /* Table Style */
+        .profile-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .profile-container table td {
+            padding: 12px;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+        .profile-container table td strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Table Row Style */
+        .profile-container table tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        /* Edit Profile Link Style */
+        .profile-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-container a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .profile-container {
+                width: 90%;
+            }
+
+            .profile-container table td {
+                font-size: 14px;
+            }
+
+            .profile-container a {
+                padding: 8px 16px;
+            }
+        }
+
+    </style>
+{% endblock %}
